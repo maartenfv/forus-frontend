@@ -24,4 +24,5 @@ function onPageLoaded() {
 
 $(document).ready(function () {
     onPageLoaded();
+    setInterval(onPageLoaded, 1000);
 });

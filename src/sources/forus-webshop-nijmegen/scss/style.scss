@@ -18,6 +18,14 @@
     max-width: 100%;
     margin: 0 auto;
     display: block;
+
+    &.wrapper-half {
+        width: 50%;
+    }
+
+    &.wrapper-2-3 {
+        width: 66.666%;
+    }
 }
 
 .show-sm {
@@ -5433,25 +5441,6 @@ body {
 
 .popups {
     .popup {
-        @include fill_parent();
-        position: fixed;
-        z-index: 15;
-
-        .popup-backdrop {
-            @include fill_parent();
-            cursor: pointer;
-            background: rgba(#192734, .5);
-        }
-
-        .popup-close {
-            position: absolute;
-            right: 30px;
-            top: 30px;
-            color: #646f79;
-            font-size: 28px;
-            cursor: pointer;
-            z-index: 1;
-        }
 
         .popup-content {
             width: 1200px;

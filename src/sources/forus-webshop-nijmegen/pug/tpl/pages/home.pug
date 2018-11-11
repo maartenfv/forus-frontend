@@ -1,104 +1,70 @@
 .header-splash: .splash
 
 header.section.section-header.section-header-landing: .wrapper
-    .heade-sprite
     top-navbar
-
-    .header-content
-        .header-title Nijmegen. Meedoen-regeling.
-        .header-description Welkom op de website van de Meedoen-regeling. In Nijmegen krijgt iedereen de kans om mee te doen.
-        a(scroll-to="#steps" translate="home.header.button").button.button-primary 
-
-block-products(ng-if="$root.appConfigs.features.products.list" products="$ctrl.products" product-categories="$ctrl.productCategories")
-
-section.section.section-map: .wrapper
-    .block.block-map
-        .block-content
-            .block-title {{ "home.map.title" | translate }}
-            .block-description(ng-bind="'home.map.subtitle' | translate")
-            button(ng-click="$root.popups.offices.open()" translate="home.map.button").button.button-primary
-    
-section.section.section-steps#steps: .wrapper
-    //.section-splash
-    .section-sprite
-    .section-title Hoe het systeem werkt
-    .steps
-        .step-item: .step-item-content
-            h4 Stap #1
-            p U heeft een een brief ontvangen van de Gemeente. In deze brief staat een activatiecode. Deze hebt u nodig voor stap 2.
-        .step-item: .step-item-content
-            h4 Stap #2
-            p Op de website waar u zich nu bevindt klikt u, boven aan de pagina, op de groene knop en logt u in met de activatiecode.
-        .step-item: .step-item-content
-            h4 Stap #3
-            p U ontvangt een mail een QR-code (nodig voor stap 5) en een link naar overzichtspagina van de Meedoen-regeling.
-        .step-item: .step-item-content
-            h4 Stap #4
-            p Op de overzichtspagina staan de winkels waar u met de QR-Code terecht kunt. Print de QR-Code uit, of zorg dat deze als plaatje op uw telefoon staat. De Qr-Code kunt u steeds opnieuw gebruiken.
-        .step-item: .step-item-content
-            h4 Stap #5
-            p U ontvangt een mail een QR-code (nodig voor stap 5) en een link naar overzichtspagina van de Meedoen-regeling.
-
-        .step-item
-
-section.section.section-blogs(ng-if="$root.appConfigs.features.blog"): .wrapper
-    .section-title {{ "home.blog.title" | translate }}
-    
-    .block.block-blogs
-        mixin blog_item(nth)
-            .blog-item: a(href="#").blog-item-inner
-                .blog-image: img(src="./assets/img/blog-image-" + nth + ".jpg")
-                .blog-name {{ "home.blog.name" | translate }}
-                .blog-read-more 
-                    | {{ "home.blog.more" | translate }}
-                    em.mdi.mdi-arrow-right
-        +blog_item(1)
-        +blog_item(2)
-        +blog_item(3)
-    .block.block-show-more: a(href="#").button.button-primary {{ "home.blog.button" | translate }}
-    
-section.section.section-faq: .wrapper
-    .section-splash
-    .section-title Veel gestelde vragen
-    .faq(collapse)
-        mixin faq_item(title, content, active)
-            .faq-item(class=active?'active':'' collapse-item)
-                .faq-item-header(collapse-header)
-                    | #{title}
-                    .faq-item-chevron-down.mdi.mdi-chevron-down
-                    .faq-item-chevron-up.mdi.mdi-chevron-up
-                .faq-item-content(collapse-content)=content
-
-        +faq_item(
-            "Ik weet niet hoe ik moet inloggen; hoe de activatiecode werkt.",
-            "In de brief staat uw activatiecode. Die code vult u in op de website onder de knop activatie-code. Daana u ontvangt u een e-mail met uw QR-code")
-
-        +faq_item(
-            "Ik ben mijn QR-code kwijt. Wat moet ik doen?",
-            "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Illum deleniti natus quibusdam non? Alias sed, voluptatum distinctio dolorum itaque natus vero fugiat. Odit sed quas blanditiis natus? Et quibusdam harum rem ut!")
-
-        +faq_item(
-            "Hoe kan ik zien hoe hoog mijn budget nog is?",
-            "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Illum deleniti natus quibusdam non? Alias sed, voluptatum distinctio dolorum itaque natus vero fugiat. Odit sed quas blanditiis natus? Et quibusdam harum rem ut!")
-
-        //+faq_item(
-            "Kan ik iets wat ik gekocht heb ruilen/retour brengen?",
-            "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Illum deleniti natus quibusdam non? Alias sed, voluptatum distinctio dolorum itaque natus vero fugiat. Odit sed quas blanditiis natus? Et quibusdam harum rem ut!")
-
-        +faq_item(
-            "Moet ik mijn budget in 1x besteden?",
-            "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Illum deleniti natus quibusdam non? Alias sed, voluptatum distinctio dolorum itaque natus vero fugiat. Odit sed quas blanditiis natus? Et quibusdam harum rem ut!")
-
-        +faq_item(
-            "Kan ik iets kopen bij een andere winkelier die niet op de website staat?",
-            "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Illum deleniti natus quibusdam non? Alias sed, voluptatum distinctio dolorum itaque natus vero fugiat. Odit sed quas blanditiis natus? Et quibusdam harum rem ut!")
-
-        //+faq_item(
-            "Ik heb nog een kind gekregen. Kom ik in aanmerking voor een hoger budget?",
-            "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Illum deleniti natus quibusdam non? Alias sed, voluptatum distinctio dolorum itaque natus vero fugiat. Odit sed quas blanditiis natus? Et quibusdam harum rem ut!")
-
-        +faq_item(
-            "Hoe kom ik in aanmerking voor de Meedoen-regeling?",
-            "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Illum deleniti natus quibusdam non? Alias sed, voluptatum distinctio dolorum itaque natus vero fugiat. Odit sed quas blanditiis natus? Et quibusdam harum rem ut!")
-
-contact-form 
+    br
+    br
+    br
+    br
+.popups: .popup.popup-auth: .wrapper
+    .popup-title 
+        | Activeren voor inwoner
+    .popup-subtitle 
+        | Dit scherm is alleen bedoeld voor geautoriseerde medewerkers die 
+        | een code activeren voor een inwoner die zelf geen email adres heeft. 
+    .wrapper.wrapper-2-3: form.form
+        //- .form-group
+            .form-label {{ "popup_auth.input.mail" | translate }}
+            input(
+                type="email" 
+                ng-model="signUpForm.values.records.primary_email" 
+                placeholder="{{ 'popup_auth.input.mailing' | translate }}").form-control.form-control
+            .form-error(ng-repeat="error in signUpForm.errors['records.primary_email']" ng-bind="error")
+        //- .form-group
+            .form-label {{ "popup_auth.input.confirmation" | translate }}
+            input(
+                type="email" 
+                ng-model="signUpForm.values.records.primary_email_confirmation" 
+                placeholder="{{ 'popup_auth.input.mailing' | translate }}").form-control.form-control
+            .form-error(ng-repeat="error in signUpForm.errors['records.primary_email_confirmation']" ng-bind="error")
+        //- .form-group
+            .form-label Pin code
+            input(ng-model="signUpForm.values.pin_code" type="text" placeholder="Pin Code").form-control
+            .form-error(ng-repeat="error in signUpForm.errors.pin_code" ng-bind="error")
+        .form-group
+            .form-label.active {{ "popup_auth.input.coding" | translate }}
+            input(ng-model="signUpForm.values.code" type="text" placeholder="{{ 'popup_auth.input.code' | translate}}").form-control
+            .form-error(ng-repeat="error in signUpForm.errors.code" ng-bind="error")
+        .form-group
+        .form-group: a(ui-sref="voucher").button.button-primary.button-wide {{ "popup_auth.buttons.submit" | translate }}
+    .popup-footer
+        .footer-text.text-center 
+            | Let op: herstel in geval van verlies is niet mogelijk. 
+            | Kan de inwoner een vertrouwd email adres kan gebruiken? 
+            | Koppel de code dan aan het email adres via dit formulier.
+        //- .popup-footer-links
+            a(href="#").popup-footer-link 
+                span »
+                | LOREM IPSUM DOLOR SIT AMET, CONSECTETUR ADIPISICING ELIT
+            a(href="#").popup-footer-link
+                span »
+                | EIUSMOD TEMPOR INCIDIDUNT UT LABORE ET DOLORE MAGNA ALIQUA
+            a(href="#").popup-footer-link
+                span »
+                | LABORIS NISI UT ALIQUIP EX EA COMMODO CONSEQUAT.
+br
+br
+br
+br
+br
+br
+br
+br
+br
+br
+br
+br
+br
+br
+br
+br
