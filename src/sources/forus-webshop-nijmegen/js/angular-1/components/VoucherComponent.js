@@ -24,6 +24,24 @@ let VoucherComponent = function(
                 $rootScope.popups.auth.open('voucher-email-sent')
             });
         };
+
+        $ctrl.printVoucher = function(voucher) {
+            function Popup(data) {
+                var mywindow = window.open('', '', 'height=600,width=800');
+                mywindow.document.write('<html><head><title>Print voucher</title>');
+                /*optional stylesheet*/ //mywindow.document.write('<link rel="stylesheet" href="main.css" type="text/css" />');
+                mywindow.document.write('</head><body >');
+                mywindow.document.write(data);
+                mywindow.document.write('</body></html>');
+
+                mywindow.print();
+                mywindow.close();
+
+                return true;
+            }
+
+            Popup($(qrCodeEl).html());
+        };
     };
 };
 

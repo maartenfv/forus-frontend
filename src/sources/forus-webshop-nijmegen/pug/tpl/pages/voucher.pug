@@ -8,6 +8,7 @@ header.section.section-header.section-header-voucher: .wrapper
             div(ng-if="!$ctrl.voucherCard.product")
                 .header-title {{ "voucher.header.title" | translate }}
                 div(ng-click="$ctrl.sendVoucherEmail($ctrl.voucher)" ng-bind="'voucher.buttons.send' | translate").button.button-primary
+                div(ng-click="$ctrl.printVoucher($ctrl.voucher)" ng-bind="'Print'").button.button-primary
 
             .block.block-product.block-product-sm(ng-if="$ctrl.voucherCard.product")
                 .product-card

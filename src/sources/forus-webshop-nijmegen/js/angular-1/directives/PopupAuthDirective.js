@@ -57,51 +57,10 @@ let PopupAuthDirective = function(
             $scope.signUpForm = FormBuilderService.build({
                 code: "",
                 pin_code: "1111",
-            }, function(form) {
-                if (form.values.records && (form.values.records.primary_email !=
-                        form.values.records.primary_email_confirmation)) {
-                    form.errors = {
-                        'records.primary_email_confirmation': [
-                            $filter('translate')('validation.email_confirmation')
-                        ]
-                    };
-                    return;
-                }
-
-                form.lock();
-
-                IdentityService.make({
-                    code: form.values.code,
-                    pin_code: form.values.pin_code,
-                    records: {
-                        primary_email: form.values.records ? form.values.records.primary_email : ''
-                    },
-                }).then((res) => {
-                    $ctrl.applyAccessToken(res.data.access_token);
-
-                    PrevalidationService.redeem(
-                        form.values.code
-                    ).then(function() {
-                        $scope.popup.close();
-
-                        ConfigService.get().then((res) => {
-                            if (!res.data.funds.list) {
-                                FundService.applyToFirstAvailable().then(res => {
-                                    $state.go('voucher', res.data.data);
-                                }, () => {
-                                    alert('Sorry no funds to apply to.');
-                                });
-                            } else if (res.data.records.list) {
-                                $state.go('records');
-                            } else {
-                                $state.go('home');
-                            }
-                        });
-                    }, console.error);
-                }, (res) => {
-                    form.unlock();
-                    form.errors = res.data.errors;
-                });
+            },
+            function(form) {
+                $state.go('voucher');
+                $scope.popup.close();
             });
         }
 

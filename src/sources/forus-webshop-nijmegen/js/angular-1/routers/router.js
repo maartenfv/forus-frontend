@@ -122,18 +122,27 @@ module.exports = function($stateProvider) {
 
     $stateProvider.state({
         name: 'voucher',
-        url: '/voucher/{address}',
+        url: '/voucher/0x6588945b0ce688a3d944b58f0a490880cf8fa74a',
         component: 'voucherComponent',
-        data: {
-            address: null
-        },
         resolve: {
             voucher: function($transition$, VoucherService) {
-                return repackResponse(
-                    VoucherService.get(
-                        $transition$.params().address
-                    )
-                )
+                return new Promise((res, rej) => res({
+                    address: "0x6588945b0ce688a3d944b58f0a490880cf8fa74a",
+                    amount: 120,
+                    fund: {
+                        name: "Meedoen",
+                        logo: {
+                            sizes: {}
+                        },
+                        organization: {
+                            name: "Gemeente Nijmegen",
+                            logo: {
+                                sizes: {}
+                            }
+                        }
+                    },
+                    transactions: []
+                }))
             }
         }
     });
@@ -296,7 +305,8 @@ module.exports = function($stateProvider) {
                     alert("Token expired or unknown.");
                     $state.go('home');
                 });
-            }],
+            }
+        ],
         data: {
             token: null
         }
