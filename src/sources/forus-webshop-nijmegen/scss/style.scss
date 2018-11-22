@@ -2068,38 +2068,15 @@ body {
         .download-button {
             display: block;
             background: #fff;
+            background-image: url(./assets/img/play-store-badge.png)
             height: 60px;
             width: 240px;
             max-width: 100%;
             margin-bottom: 10px;
             text-align: center;
-
-            .download-label {
-                font: 400 12px $bf;
-                color: #646f79;
-            }
-
-            .download-value {
-                font: 700 16px $bf;
-                color: #282b39;
-            }
-
-            .download-icon {
-                position: absolute;
-                right: 0;
-                top: 0;
-                width: 65px;
-                height: 100%;
-                background-color: #f4f4f4;
-
-                img {
-                    display: block;
-                    position: absolute;
-                    top: 50%;
-                    left: 50%;
-                    transform: translate(-50%, -50%);
-                }
-            }
+        }
+        .download-button:nth-child(2) {
+            background-image: url(./assets/img/app-store-badge.svg)
         }
     }
 
